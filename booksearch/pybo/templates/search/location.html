@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+.container {
+	padding-top:50px;
+}
+.container2 {
+	display: flex;
+	/* display: inline-flex; */
+	flex-direction: row;
+    flex-wrap: wrap;
+
+}
+.item {
+	margin-right: auto;
+    margin-left: auto;
+}
+
+.map {
+	width:50%;
+	padding-top:30px;
+	margin-right: auto;
+    margin-left: auto;
+}
+
+.map img{
+	width:100%;
+	height:200px;
+}
+.bookImg {
+	padding-left:30px;
+}
+.bookImg img {
+	width:400px;
+	height:250px;
+	}
+.bookData {
+	width:40%;
+}
+</style>
+<div class="container">
+	<div class="container2">
+		<div class="item bookImg"><img src="https://blog.kakaocdn.net/dn/bIRgXZ/btqBiCitVAp/UiJQkzdxlCBqWvLuUFkBs0/img.png"></div>
+		<div class="item bookData"><h1>나 혼자만 레벨업 </h1>
+
+			전 세계 독자가 열광한 레이드 액션의 진수! 다수 글로벌 플랫폼에서 웹툰 연재, 미국, 독일, 브라질, 우크라이나, 이탈리아, 일본, 프랑스 등지에 단행본 수출! 프랑스 아마존 도서 종합 2위, 프랑스·독일·브라질 아마존 만화 1위 일본판 3, 4권 발매와 동시에 오리콘 차트 진입 최약체에서 최강 헌터로, 세상의 중심에 서다!
+		</div>
+	</div>
+	<div class="map" style="" >
+		<div id="map" style="width:600px;height:100%;"></div>
+
+
+	</div>
+
+</div>
+
+
+<script>
+$(document).ready(function() {
+	var body = document.body,
+	html = document.documentElement;
+	var height = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight );
+	var height2 = $('html').height()
+	$('.map').height(height-height2-2);
+	function success({ coords, timestamp }) {
+            const latitude = coords.latitude;   // 위도
+            const longitude = coords.longitude; // 경도
+
+	        kakaomap(latitude, longitude)
+	};
+ 	function getUserLocation() {
+ 		console.log(1)
+            if (!navigator.geolocation) {
+                throw "위치 정보가 지원되지 않습니다.";
+            }
+            navigator.geolocation.getCurrentPosition(success);
+        }
+
+        getUserLocation();
+	function kakaomap(latitude, longitude){
+		console.log(latitude)
+		var container = document.getElementById('map');
+		var options = {
+			center: new kakao.maps.LatLng(latitude, longitude),
+			level: 3
+		};
+
+		var map = new kakao.maps.Map(container, options);
+	}
+});
+</script>
+{% endblock %}
