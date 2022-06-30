@@ -5,7 +5,7 @@ import folium
 import testdb
 from pybo import db
 from pybo.forms import QuestionForm, AnswerForm, BookSearchForm
-from pybo.models import Question
+# from pybo.models import Question
 from datetime import datetime
 bp = Blueprint('search', __name__, url_prefix='/search')
 

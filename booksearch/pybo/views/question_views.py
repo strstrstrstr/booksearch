@@ -4,7 +4,7 @@ from werkzeug.utils import redirect
 import testdb
 from pybo import db
 from pybo.forms import QuestionForm, AnswerForm
-from pybo.models import Question
+# from pybo.models import Question
 from datetime import datetime
 bp = Blueprint('question', __name__, url_prefix='/question')
 
