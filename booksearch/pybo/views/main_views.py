@@ -4,7 +4,7 @@ from flask import Blueprint, render_template, url_for
 from werkzeug.utils import redirect
 import testdb
 from pybo import db
-from pybo.models import Question
+# from pybo.models import Question
 
 bp = Blueprint('main', __name__, url_prefix='/')
 
