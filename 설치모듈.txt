@@ -1,4 +1,6 @@
+pip install folium
+pip install --upgrade pip
 pip install flask
 pip install flask-migrate
-email_validator
-flask-wtf
+pip installemail_validator
+pip install flask-wtf
