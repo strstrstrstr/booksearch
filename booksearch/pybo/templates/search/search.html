@@ -77,7 +77,7 @@ input {
    <div class="body">
 	<h1> 도서관 책 검색</h1>
 	<div class="wrapper">
-		<form id="search-area" action="{{ url_for('search.location')}}" method="post">
+		<form id="search-area" action="{{ url_for('search.search_list')}}" method="post">
 			<input class="search" type="text" id="search" name="bookNm"/>
 			<input class="submit" type="button" value=" " />
 		</form>
