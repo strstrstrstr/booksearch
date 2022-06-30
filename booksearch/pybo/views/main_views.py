@@ -18,7 +18,7 @@ bp = Blueprint('main', __name__, url_prefix='/')
 
 @bp.route('/')
 def index():
-    return redirect(url_for('question.list_question'))
+    return redirect(url_for('search.search'))
 
 @bp.route('/test')
 def dbtest():

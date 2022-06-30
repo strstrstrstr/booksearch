@@ -4,7 +4,7 @@ from werkzeug.utils import redirect
 import folium
 import testdb
 from pybo import db
-from pybo.forms import QuestionForm, AnswerForm, BookSearchForm
+from pybo.forms import QuestionForm, AnswerForm, BookRentForm
 # from pybo.models import Question
 from datetime import datetime
 import pybo.libraryApi as lbApi
@@ -20,17 +20,16 @@ def search():
     bookname= bestSeller['response']['docs'][ranNum]['doc']['bookname']
     return render_template('search/search.html', bestSeller=bookname)
 
-@bp.route('/location',methods=('GET', 'POST'))
-def location():
-    bookNm = request.form.get('bookNm')
-
-    return render_template('search/location.html')
+@bp.route('/location/<int:isbn>/')
+def location(isbn):
+    lbInfo = lbApi.bookInLibrary(isbn)['response']['libs']
+    bkDt = lbApi.bookSearch(isbn)['response']['detail'][0]['book']
+    print(bkDt)
+    return render_template('search/location.html', bookData=bkDt, lbInfo=lbInfo)
 
 @bp.route('/list',methods=('GET', 'POST'))
 def search_list():
     bookNm = request.form.get('bookNm')
-    print(bookNm)
-    url = lbApi.url()
-    bestSeller = lbApi.bookSearch(url, bookNm)
-    print(bestSeller)
-    return render_template('search/search_list.html')
+    url = lbApi.url({'pageSize=20'})
+    bestSeller = lbApi.bookSearchList(url, bookNm)
+    return render_template('search/search_list.html', bookList=bestSeller['response']['docs'])

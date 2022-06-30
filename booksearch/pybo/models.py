@@ -15,3 +15,5 @@ class History(db.Model):
     user = db.relationship('User', backref=db.backref('user_set'))
     bookname = db.Column(db.String)
     bookrate = db.Column(db.String)
+    class_nm = db.Column(db.String)
+    isbn13 = db.Column(db.String)
