@@ -4,3 +4,6 @@ pip install flask
 pip install flask-migrate
 pip installemail_validator
 pip install flask-wtf
+pip install email_validator
+
+bs4, lxml

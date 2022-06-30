@@ -25,8 +25,8 @@ class UserLoginForm(FlaskForm):
     password = PasswordField('비밀번호', validators=[DataRequired()])
     
 class BookRentForm(FlaskForm):
-    id = StringField('책 제목', validators=[DataRequired('책제목 필수!!')])
-    user = StringField('책 제목', validators=[DataRequired('책제목 필수!!')])
+    # id = StringField('책 제목', validators=[DataRequired('책제목 필수!!')])
+    # user = StringField('책 제목', validators=[DataRequired('책제목 필수!!')])
     bookname = StringField('책 제목', validators=[DataRequired('책제목 필수!!')])
-    class_nm = StringField('책 제목', validators=[DataRequired('책제목 필수!!')])
+    # class_nm = StringField('책 제목', validators=[DataRequired('책제목 필수!!')])
     lsbn13 = StringField('책 제목', validators=[DataRequired('책제목 필수!!')])

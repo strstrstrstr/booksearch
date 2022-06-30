@@ -13,6 +13,7 @@ class User(db.Model):
 class History(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user = db.relationship('User', backref=db.backref('user_set'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id', ondelete='CASCADE'), nullable=True, server_default='1')
     bookname = db.Column(db.String)
     bookrate = db.Column(db.String)
     class_nm = db.Column(db.String)

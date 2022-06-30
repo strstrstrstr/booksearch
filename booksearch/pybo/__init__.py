@@ -6,7 +6,6 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData
 import config
 
-
 naming_convention = {
     "ix": 'ix_%(column_0_label)s',
     "uq": "uq_%(table_name)s_%(column_0_name)s",
@@ -32,11 +31,12 @@ def create_app():
 
     # 블루프린트
     from .views import main_views
-    from .views import naver_views,answer_views,auth_views,search_views
+    from .views import naver_views,answer_views,auth_views,search_views,recommend_views
     app.register_blueprint(main_views.bp)
     app.register_blueprint(naver_views.bp)
     app.register_blueprint(answer_views.bp)
     app.register_blueprint(auth_views.bp)
     app.register_blueprint(search_views.bp)
+    app.register_blueprint(recommend_views.bp)
 
     return app

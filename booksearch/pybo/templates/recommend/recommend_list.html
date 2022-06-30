@@ -15,6 +15,7 @@
         <tbody>
         {% if bookList %}
         {% for book in bookList %}
+
         <tr class="table-danger test">
             <td class="table-active text-white">{{ loop.index }}
                 <input class="isbn" type="hidden" readonly="readonly" value="{{book.doc.isbn}}">
@@ -24,23 +25,7 @@
             </td>
             <td class="table-active">{{book.doc.authors}}</td>
             <td class="table-active">{{book.doc.publication_year}}</td>
-            <td class="table-active"><button class="btn btn-primary rent">대출
-            </button></td>
-
-        </tr>
-        {% endfor %}
-        {% elif recommend %}
-        {% for temp in recommend %}
-        <tr class="table-danger test">
-            <td class="table-active text-white">{{ loop.index }}
-                <input class="isbn" type="hidden" readonly="readonly" value="{{temp.bookisbn}}">
-            </td>
-            <td >
-                <a href="{{ url_for('search.location', isbn=temp.bookisbn) }}">{{ temp.bookname }}</a>
-            </td>
-            <td class="table-active">{{temp.bookauthor}}</td>
-            <td class="table-active">{{temp.bookyear}}</td>
-            <td class="table-active"><button class="btn btn-primary rent">대출
+            <td class="table-active"><button class="btn btn-primary rent"><a  href="{{/search/hide/?isbn=book.doc.isbn13 & booknm=book.doc.bookname}}">대출</a>
             </button></td>
 
         </tr>
