@@ -18,3 +18,10 @@ class History(db.Model):
     bookrate = db.Column(db.String)
     class_nm = db.Column(db.String)
     isbn13 = db.Column(db.String)
+
+
+
+
+
+
+

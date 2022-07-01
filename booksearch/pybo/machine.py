@@ -2,7 +2,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
 
-df1=pd.read_csv(r'C:\hub\booksearch\booksearch\pybo\df_all_file.csv',encoding='utf-8')
+df1=pd.read_csv(r'C:\booksearch2\booksearch\booksearch\pybo\df_all_file.csv',encoding='utf-8')
 list_book = list(df1['bookname'].values)
 
 count_vect = CountVectorizer(min_df=0, ngram_range=(1,2))

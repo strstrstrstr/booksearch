@@ -24,7 +24,10 @@
             </td>
             <td class="table-active">{{book.doc.authors}}</td>
             <td class="table-active">{{book.doc.publication_year}}</td>
-            <td class="table-active"><button class="btn btn-primary rent">대출
+            <td class="table-active"><button class="btn btn-primary rent"><a class="text-white" href="/search/booking?bookname={{book.doc.bookname}}&isbn13={{book.doc.isbn13}}">대출</a>
+<!-- 1.url_for('link',변수1=?,변수2)
+     2. href=/?변수1=???&변수2=???
+     3. 폼사용 근데 input이 없음-->
             </button></td>
 
         </tr>
@@ -40,7 +43,7 @@
             </td>
             <td class="table-active">{{temp.bookauthor}}</td>
             <td class="table-active">{{temp.bookyear}}</td>
-            <td class="table-active"><button class="btn btn-primary rent">대출
+            <td class="table-active"><button class="btn btn-primary rent"><a class="text-white" href="/recommend/booking?bookname={{temp.bookname}}&isbn13={{temp.isbn}}">대출</a>
             </button></td>
 
         </tr>
